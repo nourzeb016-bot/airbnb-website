@@ -1,0 +1,1054 @@
+<title>The Cliffs</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="The Cliffs — a cliff-top house on the Great Ocean Road, above the Southern Ocean. Reserve your stay through the official Airbnb listing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ── The Cliffs · beige · coastal navy · sea glass ───────────
+   Full-bleed, still photographic hero (centred wordmark over the
+   mist), then a calm editorial scroll. One sea-glass accent carries
+   every call to book. */
+:root{
+  --sand:#e8e2d4;      /* soft beige — page */
+  --paper:#f4f0e6;     /* lighter paper — surfaces */
+  --paper2:#efe7d7;    /* secondary surface */
+  --ink:#193842;       /* deep teal-ocean — text */
+  --muted:#5f6c6c;     /* warm slate */
+  --line:#ddd3c0;      /* hairline */
+  --accent:#b5823a;    /* sunset gold */
+  --accent-soft:#d0a05a;
+  --accent-deep:#8f6227;
+  --btn-bg:#b5823a; --btn-ink:#fdf7ec; --btn-hover:#8f6227;
+
+  /* over-photo tokens — same in both themes (photo context) */
+  --on-photo:#f7f3eb;
+  --on-photo-dim:rgba(247,243,235,.78);
+  --glass-brd:rgba(247,243,235,.28);
+  --bar-bg:rgba(246,242,234,.93);
+  --bar-ink:#193842;
+  --bar-line:rgba(29,45,60,.14);
+
+  --maxw:1240px;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Jost",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --sand:#0f1d21; --paper:#15282d; --paper2:#101f23;
+  --ink:#eef0e5; --muted:#a1b1ad; --line:#263c40;
+  --accent:#d6a95f; --accent-soft:#e3bf7f; --accent-deep:#b5823a;
+  --btn-bg:#d6a95f; --btn-ink:#10201f; --btn-hover:#e3bf7f;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --sand:#0f1d21; --paper:#15282d; --paper2:#101f23;
+  --ink:#eef0e5; --muted:#a1b1ad; --line:#263c40;
+  --accent:#d6a95f; --accent-soft:#e3bf7f; --accent-deep:#b5823a;
+  --btn-bg:#d6a95f; --btn-ink:#10201f; --btn-hover:#e3bf7f;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--sans);font-weight:300;
+  line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.eyebrow{font-family:var(--sans);font-weight:500;font-size:.68rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 1.1rem;display:inline-block}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:clamp(2.1rem,5vw,3.6rem)}
+h3{font-size:1.45rem;line-height:1.15}
+p{margin:0 0 1.15rem}
+.lead{font-size:clamp(1.12rem,1.6vw,1.35rem);line-height:1.6;font-weight:300}
+.prose{color:var(--muted);font-size:1.03rem;max-width:60ch}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;
+  padding-left:max(24px,env(safe-area-inset-left,0px));
+  padding-right:max(24px,env(safe-area-inset-right,0px))}
+.band{padding-block:clamp(3rem,6vw,5rem)}
+
+/* ── buttons ─────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--sans);font-weight:400;
+  letter-spacing:.14em;text-transform:uppercase;font-size:.74rem;text-decoration:none;cursor:pointer;
+  border:none;border-radius:100px;transition:transform .35s cubic-bezier(.16,.8,.2,1),box-shadow .35s,background .3s,color .3s}
+.btn-primary{background:var(--btn-bg);color:var(--btn-ink);padding:.95rem 1.7rem}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 32px -14px var(--accent-deep);background:var(--btn-hover)}
+.btn-primary .arw{transition:transform .35s}
+.btn-primary:hover .arw{transform:translate(3px,-3px)}
+.btn-check{background:var(--bar-bg);color:var(--bar-ink);padding:.72rem 1.4rem;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.btn-check:hover{transform:translateY(-1px);box-shadow:0 12px 28px -14px rgba(0,0,0,.5)}
+
+/* ── sticky dock ─────────────────────── */
+.dock{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);
+  background:color-mix(in srgb,var(--paper) 90%,transparent);
+  backdrop-filter:saturate(1.2) blur(14px);-webkit-backdrop-filter:saturate(1.2) blur(14px);
+  border-bottom:1px solid var(--line);transform:translateY(-102%);transition:transform .5s cubic-bezier(.16,.8,.2,1)}
+.dock.show{transform:none}
+.dock-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:60px;
+  max-width:var(--maxw);margin-inline:auto;
+  padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.dock .wordmark{font-size:.82rem}
+.dock-links{display:flex;gap:1.8rem}
+.dock-links a{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  text-decoration:none;transition:color .25s}
+.dock-links a:hover{color:var(--ink)}
+@media (max-width:840px){ .dock-links{display:none} }
+
+.wordmark{font-family:var(--serif);font-weight:500;letter-spacing:.34em;text-transform:uppercase;
+  text-decoration:none;white-space:nowrap}
+
+/* ── scroll-reveal hero (sticky, native scroll — never hijacks) ──── */
+.xhero{position:relative;height:200vh}
+.xhero-sticky{position:sticky;top:0;height:100svh;overflow:hidden;isolation:isolate;color:var(--on-photo)}
+.xhero-bg{position:absolute;inset:0;z-index:0;
+  background-image:url('images-by-admin/hero.png');background-size:cover;background-position:center 46%;will-change:opacity}
+.xhero-bg::after{content:"";position:absolute;inset:0;background:rgba(10,17,22,.14)}
+.xhero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(8,14,20,.42) 0%,rgba(8,14,20,.06) 30%,rgba(8,14,20,.06) 60%,rgba(8,14,20,.5) 100%)}
+
+.herobar{position:absolute;top:0;left:0;right:0;z-index:6;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:clamp(1.3rem,2.4vw,2rem) clamp(1.4rem,3.5vw,3rem);
+  padding-left:max(clamp(1.4rem,3.5vw,3rem),env(safe-area-inset-left,0px));
+  padding-right:max(clamp(1.4rem,3.5vw,3rem),env(safe-area-inset-right,0px));
+  padding-top:max(clamp(1.3rem,2.4vw,2rem),env(safe-area-inset-top,0px))}
+.herobar .wordmark{color:var(--on-photo);font-size:.82rem}
+.herobar nav{display:flex;gap:2.2rem}
+.herobar nav a{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+  color:var(--on-photo-dim);transition:color .25s}
+.herobar nav a:hover{color:var(--on-photo)}
+@media (max-width:900px){ .herobar nav{display:none} }
+
+.xhero-stage{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;text-align:center}
+.xhero-media{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;
+  width:320px;height:440px;border-radius:16px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.45);
+  will-change:width,height,border-radius}
+.xhero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.xhero-media-scrim{position:absolute;inset:0;background:rgba(8,14,20,.5);pointer-events:none}
+.xhero-title{position:relative;z-index:4;pointer-events:none;margin:0;
+  font-family:var(--serif);font-weight:500;text-transform:uppercase;line-height:1;
+  font-size:clamp(2.6rem,10vw,7rem);letter-spacing:clamp(.06em,1.4vw,.2em);
+  color:var(--on-photo);text-shadow:0 2px 50px rgba(0,0,0,.5)}
+.xhero-title span{display:block;will-change:transform}
+.xhero-hint{position:absolute;left:0;right:0;bottom:clamp(1.6rem,4vw,3rem);z-index:4;pointer-events:none;
+  display:flex;flex-direction:column;align-items:center;gap:.55rem;color:var(--on-photo-dim);
+  font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;transition:opacity .2s}
+.xhero-hint .sub{color:var(--accent-soft);letter-spacing:.4em}
+.xhero-hint .cue{width:1px;height:34px;background:linear-gradient(var(--on-photo-dim),transparent);animation:drip 2.4s ease-in-out infinite}
+@keyframes drip{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:.9;transform:scaleY(1)}}
+@media (prefers-reduced-motion: reduce){ .xhero{height:100svh} .xhero-hint .cue{animation:none} }
+
+/* ── section heading ─────────────────── */
+.sec-head{display:flex;align-items:baseline;gap:1.2rem;margin-bottom:clamp(2rem,5vw,3.2rem)}
+.sec-head .no{font-size:.68rem;letter-spacing:.22em;color:var(--accent);text-transform:uppercase;white-space:nowrap}
+.sec-head .ln{flex:1;height:1px;background:var(--line)}
+
+/* ── photo placeholders ──────────────── */
+.ph{position:relative;overflow:hidden;border-radius:16px;background:linear-gradient(150deg,#d2cab6,#e6ddc9);display:grid;place-items:center}
+:root[data-theme="dark"] .ph{background:linear-gradient(150deg,#1c303a,#13222c)}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .ph{background:linear-gradient(150deg,#1c303a,#13222c)} }
+.ph .phin{display:flex;flex-direction:column;align-items:center;gap:.6rem;color:var(--muted);font-size:.64rem;
+  letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:1rem}
+.ph .phin svg{width:30px;height:30px;opacity:.6}
+.ph.ar34{aspect-ratio:3/4}
+.ph>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.gcell .ph>img{transition:transform 1.3s cubic-bezier(.16,.8,.2,1)}
+.gcell:hover .ph>img{transform:scale(1.055)}
+@media (prefers-reduced-motion: reduce){ .gcell:hover .ph>img{transform:none} }
+
+/* ── house ───────────────────────────── */
+.house{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+@media (max-width:860px){ .house{grid-template-columns:1fr} }
+.house .lead{font-family:var(--serif);font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.3;font-weight:400;margin-bottom:1.6rem}
+
+/* ── gallery ─────────────────────────── */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.7rem,1.4vw,1.2rem)}
+.gcell{margin:0}
+.gcell .ph{transition:transform .6s cubic-bezier(.16,.8,.2,1)}
+.gcell:hover .ph{transform:translateY(-6px)}
+.gcell figcaption{margin-top:.8rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.gcell figcaption b{display:block;font-family:var(--serif);font-size:1.15rem;letter-spacing:.01em;text-transform:none;color:var(--ink);font-weight:500;margin-bottom:.2rem}
+@media (max-width:860px){ .gallery{grid-template-columns:1fr 1fr} }
+@media (max-width:480px){ .gallery{grid-template-columns:1fr} }
+
+/* ── view (framed statement) ─────────── */
+.viewframe{position:relative;border-radius:clamp(18px,2vw,28px);overflow:hidden;min-height:min(560px,70vh);
+  display:flex;align-items:center;justify-content:center;text-align:center;color:var(--on-photo)}
+.viewframe .ph{position:absolute;inset:0;border-radius:0;z-index:-2}
+.viewframe .vscrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,14,20,.48),rgba(8,14,20,.55))}
+.viewframe .vinner{max-width:40ch;padding:clamp(1.5rem,5vw,3rem)}
+.bigline{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,4.4vw,3.4rem);line-height:1.2;margin:0;color:var(--on-photo)}
+.viewframe .vnote{color:var(--on-photo-dim);margin-top:1.6rem;font-size:1rem}
+.viewframe .eyebrow{color:var(--accent-soft)}
+
+/* ── experiences ─────────────────────── */
+.exp{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(2rem,6vw,5rem)}
+.exp-item{display:grid;grid-template-columns:auto 1fr;gap:1.3rem;padding-block:1.9rem;border-top:1px solid var(--line)}
+.exp-item .k{font-family:var(--serif);font-size:1.5rem;color:var(--accent);line-height:1}
+.exp-item h3{font-size:1.2rem;margin-bottom:.35rem;transition:color .35s}
+.exp-item:hover h3{color:var(--accent)}
+.exp-item p{color:var(--muted);font-size:.95rem;margin:0}
+@media (max-width:820px){ .exp{grid-template-columns:1fr} }
+
+/* ── stay ────────────────────────────── */
+.stay{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+@media (max-width:820px){ .stay{grid-template-columns:1fr} }
+.specs{font-family:var(--serif);font-size:clamp(1.55rem,2.4vw,2rem);line-height:1.3;margin:0 0 .4rem}
+.facts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
+.chip{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:100px;padding:.5rem .95rem}
+.amen{list-style:none;padding:0;margin:0;columns:2;column-gap:2.4rem}
+.amen li{break-inside:avoid;padding:.55rem 0 .55rem 1.4rem;position:relative;font-size:.96rem;border-bottom:1px solid var(--line)}
+.amen li::before{content:"";position:absolute;left:0;top:1.15rem;width:6px;height:6px;border:1px solid var(--accent);transform:rotate(45deg)}
+@media (max-width:520px){ .amen{columns:1} }
+
+/* ── location ────────────────────────── */
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,4.5rem);align-items:center}
+@media (max-width:820px){ .loc{grid-template-columns:1fr} }
+.map{width:100%;height:auto;border:1px solid var(--line);background:var(--paper);border-radius:14px}
+.dist{list-style:none;padding:0;margin:0}
+.dist li{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;padding:.85rem 0;border-bottom:1px solid var(--line)}
+.dist .place{font-size:1rem}
+.dist .t{font-family:var(--serif);color:var(--accent);font-size:1.12rem;white-space:nowrap}
+
+/* ── testimonial ─────────────────────── */
+.quote{max-width:46ch;margin-inline:auto;text-align:center}
+.quote .stars{color:var(--accent);letter-spacing:.3em;margin-bottom:1.4rem;font-size:.9rem}
+.quote blockquote{font-family:var(--serif);font-weight:400;font-style:italic;font-size:clamp(1.55rem,3.2vw,2.3rem);line-height:1.3;margin:0}
+.quote cite{display:block;margin-top:1.5rem;font-style:normal;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+/* ── final cta ───────────────────────── */
+.final{position:relative;border-radius:clamp(18px,2vw,28px);overflow:hidden;text-align:center;color:var(--on-photo);padding-block:clamp(4.5rem,10vw,7rem)}
+.final .ph{position:absolute;inset:0;border-radius:0;z-index:-2}
+.final .fscrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,14,20,.52),rgba(8,14,20,.62))}
+.final .eyebrow{color:var(--accent-soft)}
+.final h2{color:var(--on-photo);max-width:16ch;margin-inline:auto}
+.final p{color:var(--on-photo-dim);max-width:44ch;margin:1.3rem auto 2.2rem}
+.final .micro{margin-top:1.4rem;font-size:.72rem;letter-spacing:.1em;color:var(--on-photo-dim)}
+
+/* booking bar (in final cta) */
+.bookbar{max-width:720px;margin:0 auto 1.8rem;background:var(--bar-bg);color:var(--bar-ink);border-radius:100px;
+  backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);
+  box-shadow:0 26px 64px -32px rgba(0,0,0,.55);display:flex;align-items:stretch;gap:0;padding:.5rem .5rem .5rem 1.6rem;text-align:left}
+.bookbar .blabel{display:flex;align-items:center;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent-deep);font-weight:500;padding-right:1.3rem;white-space:nowrap}
+.bfield{display:flex;flex-direction:column;justify-content:center;gap:.15rem;padding:.5rem 1.3rem;position:relative;min-width:0}
+.bfield+.bfield::before,.blabel+.bfield::before{content:"";position:absolute;left:0;top:22%;height:56%;width:1px;background:var(--bar-line)}
+.bfield label{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.bfield input,.bfield select{border:none;background:transparent;color:var(--bar-ink);font-family:var(--sans);
+  font-size:.9rem;font-weight:400;padding:0;cursor:pointer;width:100%;min-width:0}
+.bfield input:focus,.bfield select:focus{outline:none}
+.bfield input::-webkit-calendar-picker-indicator{opacity:.4;cursor:pointer}
+.bookbar .btn-primary{margin-left:auto;align-self:center;white-space:nowrap}
+@media (max-width:760px){
+  .bookbar{flex-direction:column;border-radius:22px;padding:1.1rem;gap:.2rem}
+  .bookbar .blabel{padding:0 0 .6rem;border-bottom:1px solid var(--bar-line)}
+  .bfield{padding:.85rem .2rem;flex-direction:row;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bar-line)}
+  .bfield+.bfield::before,.blabel+.bfield::before{display:none}
+  .bfield input,.bfield select{width:auto;text-align:right}
+  .bookbar .btn-primary{margin:1rem 0 .2rem;justify-content:center}
+}
+
+/* ── footer ──────────────────────────── */
+.foot{position:relative;isolation:isolate;overflow:hidden;color:var(--on-photo);border-top:1px solid rgba(247,243,235,.14)}
+.foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;padding-block:3rem;align-items:flex-start}
+.foot .wordmark{font-size:.92rem}
+.foot small{display:block;color:var(--muted);font-size:.8rem;line-height:1.9;letter-spacing:.03em}
+.foot a{color:var(--accent);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.themebtn{appearance:none;border:1px solid var(--line);background:transparent;color:var(--ink);
+  width:38px;height:38px;border-radius:50%;cursor:pointer;display:grid;place-items:center;transition:border-color .25s,color .25s}
+.themebtn:hover{border-color:var(--accent);color:var(--accent)}
+.themebtn svg{width:17px;height:17px}
+
+/* ── reveal ──────────────────────────── */
+html.js .reveal{opacity:0;transform:translateY(24px);
+  transition:opacity 1.1s cubic-bezier(.16,.8,.2,1),transform 1.1s cubic-bezier(.16,.8,.2,1)}
+html.js .reveal.in{opacity:1;transform:none}
+.exp .exp-item:nth-child(2){transition-delay:.08s}
+.exp .exp-item:nth-child(4){transition-delay:.08s}
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.split .w>span{display:inline-block;transform:translateY(118%);transition:transform 1s cubic-bezier(.16,.8,.2,1)}
+.split.in .w>span{transform:none}
+@media (prefers-reduced-motion: reduce){
+  html.js .reveal{opacity:1;transform:none;filter:none;transition:none}
+  .split .w>span{transform:none;transition:none}
+}
+
+section[id]{scroll-margin-top:76px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LUXURY REDESIGN — everything below the hero (hero styles above are
+   left exactly as they were). New class names only; tokens reused.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── 01 · the house (editorial intro) ── */
+.intro{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+@media(max-width:900px){ .intro{grid-template-columns:1fr} }
+.intro .lede{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,2.8vw,2.4rem);line-height:1.28;margin:0 0 1.6rem}
+.framed{position:relative}
+.framed .frame{position:relative;border-radius:18px;overflow:hidden;
+  box-shadow:0 44px 90px -50px rgba(12,24,30,.6);will-change:transform}
+.framed .frame::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 58%,rgba(8,14,20,.26))}
+.framed .frame img{display:block;width:100%;height:clamp(480px,68vh,740px);object-fit:cover;
+  transition:transform 1.8s cubic-bezier(.16,.8,.2,1)}
+.framed:hover .frame img{transform:scale(1.055)}
+.floatcard{position:absolute;left:-20px;bottom:30px;z-index:3;
+  background:var(--bar-bg);border:1px solid var(--glass-brd);border-radius:14px;
+  padding:.95rem 1.25rem;box-shadow:0 28px 54px -30px rgba(0,0,0,.5);
+  backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2)}
+.floatcard .fc-k{display:block;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent-deep);font-weight:500;margin-bottom:.28rem}
+.floatcard .fc-v{font-family:var(--serif);font-size:1.08rem;color:var(--bar-ink)}
+@media(max-width:900px){ .floatcard{left:14px;bottom:14px} }
+
+/* ── 02 · the rooms (editorial gallery) ── */
+.rfeature{position:relative;display:flex;align-items:center;justify-content:flex-start;
+  min-height:clamp(440px,60vh,580px);border-radius:20px;overflow:hidden;isolation:isolate;
+  box-shadow:0 48px 96px -58px rgba(12,24,30,.6)}
+.rfeature.alt{justify-content:flex-end}
+.rfeature-media{position:absolute;inset:0;z-index:-2;overflow:hidden;
+  transition:transform 2.4s cubic-bezier(.16,.8,.2,1)}
+.rfeature:hover .rfeature-media{transform:scale(1.05)}
+.rfeature-media img{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;will-change:transform}
+.rfeature::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg,rgba(8,14,20,.72),rgba(8,14,20,.3) 52%,rgba(8,14,20,.05))}
+.rfeature.alt::after{background:linear-gradient(270deg,rgba(8,14,20,.72),rgba(8,14,20,.3) 52%,rgba(8,14,20,.05))}
+.rfeature-cap{position:relative;z-index:1;max-width:min(540px,82%);padding:clamp(1.7rem,4vw,3.2rem);color:var(--on-photo)}
+.rfeature.alt .rfeature-cap{text-align:right;margin-left:auto}
+.rfeature-cap .eyebrow{color:var(--accent-soft)}
+.rfeature-cap h3{font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.06;color:var(--on-photo);margin-bottom:.7rem}
+.rfeature-cap p{color:var(--on-photo-dim);max-width:44ch;margin:0 0 1.3rem}
+.rfeature.alt .rfeature-cap p{margin-left:auto}
+
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.4rem,3vw,2.3rem)}
+@media(max-width:760px){ .rgrid{grid-template-columns:1fr} }
+.tilt-scene{perspective:1100px}
+.rcard{display:block;text-decoration:none;color:inherit;border-radius:18px;overflow:hidden;
+  background:var(--paper);border:1px solid var(--line);will-change:transform;
+  box-shadow:0 22px 54px -42px rgba(12,24,30,.5);
+  transition:transform .5s cubic-bezier(.16,.8,.2,1),box-shadow .5s}
+.rcard:hover{box-shadow:0 46px 80px -44px rgba(12,24,30,.62)}
+.rcard-media{position:relative;overflow:hidden;aspect-ratio:3/2}
+.rcard-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform 1.6s cubic-bezier(.16,.8,.2,1)}
+.rcard:hover .rcard-media img{transform:scale(1.07)}
+.rcard-media .tag{position:absolute;top:14px;left:14px;z-index:2;
+  font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-photo);
+  background:rgba(10,17,22,.42);border:1px solid var(--glass-brd);border-radius:100px;
+  padding:.42rem .78rem;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.rcard-body{padding:1.5rem 1.6rem 1.7rem}
+.rcard-body h3{font-size:1.5rem;margin-bottom:.45rem}
+.rcard-body p{color:var(--muted);font-size:.96rem;margin:0}
+.viewlink{display:inline-flex;align-items:center;gap:.55rem;margin-top:1.1rem;
+  font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.viewlink .arw{transition:transform .4s cubic-bezier(.16,.8,.2,1)}
+.rcard:hover .viewlink .arw,.rfeature:hover .viewlink .arw{transform:translateX(5px)}
+
+/* ── cinematic oceanfront band (The Edge) ── */
+.cband{position:relative;display:flex;align-items:flex-end;justify-content:flex-start;text-align:left;
+  min-height:clamp(560px,82vh,780px);border-radius:22px;overflow:hidden;isolation:isolate;color:var(--on-photo)}
+.cband-media{position:absolute;inset:0;z-index:-2;overflow:hidden;transition:transform 2.6s cubic-bezier(.16,.8,.2,1)}
+.cband:hover .cband-media{transform:scale(1.04)}
+.cband-media img{position:absolute;left:0;top:-14%;width:100%;height:128%;object-fit:cover;will-change:transform}
+.cband::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(8,14,20,.12),rgba(8,14,20,.3) 45%,rgba(8,14,20,.74))}
+.cband-in{max-width:46ch;padding:clamp(1.8rem,5vw,3.4rem)}
+.cband .eyebrow{color:var(--accent-soft)}
+.cband .bigline{color:var(--on-photo)}
+.cband .vnote{color:var(--on-photo-dim);margin-top:1.6rem;font-size:1rem}
+
+/* ── stay · animated stat counters ── */
+.staycount{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-bottom:clamp(2.2rem,5vw,3.2rem);
+  background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.staycount .c{background:var(--paper);padding:1.7rem 1.1rem;text-align:center}
+.staycount .c .n{font-family:var(--serif);font-size:clamp(2rem,4vw,2.9rem);color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.staycount .c .l{display:block;margin-top:.55rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:620px){ .staycount{grid-template-columns:1fr 1fr} }
+
+/* ── refined guest note ── */
+.quote .mark{display:block;font-family:var(--serif);font-size:4rem;line-height:.55;color:var(--accent);opacity:.45;margin-bottom:.3rem}
+
+/* ── reduced-motion: no transforms, correct image framing ── */
+@media (prefers-reduced-motion: reduce){
+  .framed:hover .frame img,.rfeature:hover .rfeature-media,.cband:hover .cband-media,
+  .rcard:hover .rcard-media img,.rcard:hover{transform:none}
+  .rfeature-media img,.cband-media img{top:0;height:100%}
+}
+@media(max-width:620px){
+  .rfeature{align-items:flex-end}
+  .rfeature::after,.rfeature.alt::after{background:linear-gradient(180deg,rgba(8,14,20,.1),rgba(8,14,20,.74))}
+  .rfeature-cap,.rfeature.alt .rfeature-cap{text-align:left;margin-left:0;max-width:100%}
+  .rfeature.alt .rfeature-cap p{margin-left:0}
+}
+
+/* ── 02 · THE ROOMS — live auto-scrolling gallery (reference aesthetic) ── */
+.rooms-live{position:relative;background:#14312c;color:#f3efe6;overflow:hidden;
+  padding-block:clamp(4rem,9vw,7rem);border-block:1px solid rgba(243,239,230,.09)}
+.rooms-live .rl-head{text-align:center;max-width:30ch;margin:0 auto clamp(2.4rem,5vw,3.6rem);padding-inline:1.2rem}
+.rooms-live .eyebrow{color:var(--accent-soft)}
+.rooms-live h2{color:#f6f2e9;font-size:clamp(2.1rem,5vw,3.6rem);line-height:1.08}
+.rooms-live .rl-sub{color:rgba(243,239,230,.68);font-size:clamp(1rem,1.5vw,1.14rem);margin:1.2rem auto 0;max-width:54ch}
+.rl-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.9rem,1.5vw,1.4rem);
+  max-width:1900px;margin-inline:auto;padding-inline:clamp(16px,3vw,52px);
+  height:min(92vh,1040px);overflow:hidden}
+@media(max-width:1024px){ .rl-cols{height:min(86vh,900px)} }
+@media(max-width:720px){ .rl-cols{grid-template-columns:repeat(2,1fr);height:min(84vh,760px);padding-inline:14px;gap:.8rem}
+  .rl-col:nth-child(3){display:none} }
+.rl-col{display:flex;flex-direction:column;gap:clamp(.9rem,1.5vw,1.4rem);will-change:transform}
+.rl-col.up{animation:rl-up 60s linear infinite}
+.rl-col.down{animation:rl-down 60s linear infinite}
+.rl-col:nth-child(2){animation-duration:74s}
+.rl-col:nth-child(3){animation-duration:66s}
+.rl-col:hover{animation-play-state:paused}
+@keyframes rl-up{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes rl-down{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+.rl-item{position:relative;margin:0;flex:0 0 auto;
+  border-radius:14px;overflow:hidden;cursor:zoom-in;box-shadow:0 22px 44px -30px rgba(0,0,0,.75)}
+.rl-item img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;
+  transition:transform 1.1s cubic-bezier(.16,.8,.2,1)}
+.rl-item::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s;
+  background:linear-gradient(180deg,transparent 46%,rgba(8,16,16,.62))}
+.rl-name{position:absolute;left:16px;bottom:13px;z-index:2;margin:0;pointer-events:none;
+  color:var(--on-photo);font-family:var(--serif);font-size:1.2rem;letter-spacing:.01em;
+  text-shadow:0 2px 22px rgba(0,0,0,.7);opacity:0;transform:translateY(8px);
+  transition:opacity .45s cubic-bezier(.16,.8,.2,1),transform .45s cubic-bezier(.16,.8,.2,1)}
+.rl-item:hover img{transform:scale(1.07)}
+.rl-item:hover::after{opacity:1}
+.rl-item:hover .rl-name{opacity:1;transform:none}
+@media(hover:hover){ .rl-item:hover{box-shadow:0 34px 64px -26px rgba(0,0,0,.85)} }
+@media(max-width:720px){ .rl-name{opacity:1;transform:none} .rl-item::after{opacity:1} }
+@media (prefers-reduced-motion: reduce){
+  .rl-col.up,.rl-col.down{animation:none}
+  .rl-cols{height:auto}
+  .rl-name{opacity:1;transform:none} .rl-item::after{opacity:1}
+}
+
+/* ── lightbox · click a room to pop it out (nothing is blurred) ── */
+.lightbox{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;
+  background:rgba(6,13,13,.93);padding:clamp(1rem,4vw,3rem);cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox .lb-stage{animation:lb-pop .34s cubic-bezier(.16,.8,.2,1);text-align:center;max-width:94vw}
+.lightbox img{max-width:min(880px,94vw);max-height:84vh;width:auto;height:auto;border-radius:12px;
+  box-shadow:0 50px 110px -30px rgba(0,0,0,.85);cursor:default}
+.lightbox .lb-cap{margin-top:1.1rem;color:#f3efe6;font-family:var(--serif);
+  font-size:clamp(1.2rem,2.4vw,1.7rem);letter-spacing:.01em}
+.lb-close{position:absolute;top:clamp(.9rem,3vw,1.6rem);right:clamp(.9rem,3vw,1.6rem);
+  width:48px;height:48px;border-radius:50%;border:1px solid rgba(243,239,230,.35);
+  background:rgba(0,0,0,.35);color:#f3efe6;font-size:1.7rem;line-height:1;cursor:pointer;
+  display:grid;place-items:center;transition:background .25s,transform .35s}
+.lb-close:hover{background:rgba(0,0,0,.62);transform:rotate(90deg)}
+@keyframes lb-pop{from{transform:scale(.93);opacity:0}to{transform:scale(1);opacity:1}}
+@media (prefers-reduced-motion: reduce){ .lightbox .lb-stage{animation:none} }
+
+/* ── text-over-photo bands + stay split (fill the lower page with imagery) ── */
+.expband,.guestband{position:relative;border-radius:22px;overflow:hidden;isolation:isolate;color:var(--on-photo)}
+.expband{padding:clamp(2.5rem,6vw,5rem);min-height:clamp(540px,68vh,720px);display:flex;align-items:center}
+.guestband{padding:clamp(3.2rem,8vw,6rem) clamp(1.5rem,5vw,3rem);text-align:center;min-height:clamp(460px,58vh,620px);display:flex;align-items:center}
+.expband-media,.guestband-media{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.expband-media img,.guestband-media img{position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;will-change:transform}
+.expband::after,.guestband::after{content:"";position:absolute;inset:0;z-index:-1}
+.expband::after{background:linear-gradient(180deg,rgba(8,16,18,.58),rgba(8,16,18,.72))}
+.guestband::after{background:linear-gradient(180deg,rgba(8,16,18,.6),rgba(8,16,18,.72))}
+.expband-in .eyebrow{color:var(--accent-soft)}
+.expband-in h2{color:var(--on-photo);max-width:18ch;margin-bottom:clamp(2rem,4vw,3rem)}
+.exp-on-photo .exp-item{border-top:1px solid rgba(247,243,235,.22)}
+.exp-on-photo .exp-item h3{color:var(--on-photo)}
+.exp-on-photo .exp-item p{color:var(--on-photo-dim)}
+.exp-on-photo .exp-item .k{color:var(--accent-soft)}
+.exp-on-photo .exp-item:hover h3{color:var(--accent-soft)}
+.guestband .quote{max-width:48ch;margin-inline:auto}
+.guestband blockquote,.guestband .mark{color:var(--on-photo)}
+.guestband .mark{opacity:.6}
+.guestband .stars{color:var(--accent-soft)}
+.guestband cite{color:var(--on-photo-dim)}
+
+.stay-split{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4rem);align-items:stretch}
+@media(max-width:820px){ .stay-split{grid-template-columns:1fr} }
+.stay-photo{margin:0;border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -42px rgba(0,0,0,.55)}
+.stay-photo img{display:block;width:100%;height:100%;min-height:560px;object-fit:cover;
+  transition:transform 1.6s cubic-bezier(.16,.8,.2,1)}
+.stay-photo:hover img{transform:scale(1.05)}
+.stay-text{display:flex;flex-direction:column;gap:1.8rem;justify-content:center}
+@media (prefers-reduced-motion: reduce){
+  .expband-media img,.guestband-media img{top:0;height:100%}
+  .stay-photo:hover img{transform:none}
+}
+
+/* ── descent photo + footer background ── */
+.loc-photo{position:relative;margin:0;border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -42px rgba(0,0,0,.55)}
+.loc-photo img{display:block;width:100%;height:100%;min-height:560px;object-fit:cover;
+  transition:transform 1.6s cubic-bezier(.16,.8,.2,1)}
+.loc-photo:hover img{transform:scale(1.05)}
+.loc-photo::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 60%,rgba(8,16,16,.5))}
+.loc-photo figcaption{position:absolute;left:16px;bottom:14px;z-index:2;color:var(--on-photo);
+  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 2px 16px rgba(0,0,0,.7)}
+
+.foot-media{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.foot-media img{width:100%;height:100%;object-fit:cover}
+.foot::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(8,16,18,.72),rgba(8,16,18,.88))}
+.foot .wordmark{color:var(--on-photo)}
+.foot small{color:var(--on-photo-dim)}
+.foot a{color:var(--accent-soft)}
+.foot .themebtn{border-color:rgba(247,243,235,.32);color:var(--on-photo)}
+.foot .themebtn:hover{border-color:var(--accent-soft);color:var(--accent-soft)}
+@media (prefers-reduced-motion: reduce){ .loc-photo:hover img{transform:none} }
+
+/* ── live / dynamic accents (changing text, pulse, clock, nights) ── */
+.expband-in{width:100%}
+.live-strip{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.8rem;padding:.6rem 1.05rem;border-radius:100px;
+  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-photo);
+  background:rgba(247,243,235,.1);border:1px solid var(--glass-brd);
+  backdrop-filter:blur(8px) saturate(1.2);-webkit-backdrop-filter:blur(8px) saturate(1.2)}
+.live-strip .live-label{color:var(--accent-soft)}
+#edgeVal,#tipVal{transition:opacity .5s}
+.live-dot,.lc-dot{width:8px;height:8px;border-radius:50%;background:var(--accent-soft);flex:0 0 auto;
+  box-shadow:0 0 0 0 rgba(214,169,95,.6);animation:livepulse 2.4s ease-out infinite}
+@keyframes livepulse{0%{box-shadow:0 0 0 0 rgba(214,169,95,.5)}70%{box-shadow:0 0 0 10px rgba(214,169,95,0)}100%{box-shadow:0 0 0 0 rgba(214,169,95,0)}}
+.season-badge{display:inline-block;margin-left:.4rem;padding:.22rem .6rem;border-radius:100px;font-family:var(--sans);
+  font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;vertical-align:middle;
+  border:1px solid var(--accent-soft);color:var(--accent-soft)}
+.season-badge.on{background:var(--accent-soft);color:#10201f;border-color:transparent}
+.live-clock{display:inline-flex;align-items:center;gap:.55rem;margin-bottom:1.6rem;
+  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.live-clock b{font-family:var(--serif);font-size:1.12rem;color:var(--accent);letter-spacing:.02em;text-transform:none}
+.live-clock .lc-tz{font-size:.6rem;color:var(--muted)}
+.live-tip{display:inline-flex;align-items:center;gap:.55rem;margin:0 0 1.4rem;
+  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.live-nights{display:inline-flex;align-items:center;gap:.5rem;margin:0 auto .5rem;
+  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-photo);
+  background:rgba(247,243,235,.13);border:1px solid var(--glass-brd);border-radius:100px;padding:.5rem 1rem;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.live-nights b{color:var(--accent-soft);font-family:var(--serif);font-size:1.05rem;text-transform:none}
+.live-nights[hidden]{display:none}
+.guestband .stars{animation:twinkle 3.2s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.78}50%{opacity:1}}
+@media (prefers-reduced-motion: reduce){ .live-dot,.lc-dot,.guestband .stars{animation:none} }
+</style>
+
+<script>document.documentElement.className+=' js';
+/* default to the dark teal aesthetic (toggle still works) — set early to avoid a flash */
+try{var _ct=localStorage.getItem('cliffs-theme');document.documentElement.setAttribute('data-theme',_ct||'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}</script>
+
+<!-- ── sticky dock ── -->
+<div class="dock" id="dock">
+  <div class="dock-in">
+    <a class="wordmark" href="#top">The&nbsp;Cliffs</a>
+    <nav class="dock-links">
+      <a href="#house">The House</a><a href="#rooms">The Rooms</a>
+      <a href="#view">The Edge</a><a href="#location">The Descent</a>
+    </nav>
+    <a class="btn btn-primary" href="https://www.airbnb.co.in" target="_blank" rel="noopener">Book on Airbnb <span class="arw" aria-hidden="true">↗</span></a>
+  </div>
+</div>
+
+<!-- ── hero · scroll to reveal (native sticky scroll) ── -->
+<section class="xhero" id="top">
+  <div class="xhero-sticky">
+    <div class="xhero-bg" aria-hidden="true"></div>
+    <div class="xhero-scrim" aria-hidden="true"></div>
+
+    <header class="herobar">
+      <a class="wordmark" href="#top">The&nbsp;Cliffs</a>
+      <nav>
+        <a href="#house">The House</a><a href="#rooms">The Rooms</a>
+        <a href="#view">The Edge</a><a href="#location">The Descent</a>
+      </nav>
+      <a class="btn btn-check" href="https://www.airbnb.co.in" target="_blank" rel="noopener">Check dates</a>
+    </header>
+
+    <div class="xhero-stage">
+      <div class="xhero-media" id="xmedia">
+        <img class="xhero-img" src="hero-image-showcase/property.png" alt="The Cliffs — modern clifftop house with infinity pool at sunset">
+        <div class="xhero-media-scrim" id="xscrim" aria-hidden="true"></div>
+      </div>
+      <h1 class="xhero-title"><span class="xt1">The</span><span class="xt2">Cliffs</span></h1>
+      <div class="xhero-hint">
+        <span class="sub">Great Ocean Road · Victoria</span>
+        <span>Scroll to reveal the house</span>
+        <span class="cue" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 01 · THE HOUSE ══ -->
+<section class="band wrap" id="house">
+  <div class="sec-head reveal"><span class="no">01 — The House</span><span class="ln"></span></div>
+  <div class="intro">
+    <div class="reveal">
+      <p class="lede">A house that knows how to be quiet — glass to the weather, timber underfoot, and nothing between you and the horizon but ninety metres of clean air.</p>
+      <p class="prose">The Cliffs sits alone at the end of an unsealed lane on the Great Ocean Road, turned to face the open ocean. The plan is simple and generous: a long living room that follows the sun, three bedrooms that each hold a piece of the view, and a kitchen made for slow dinners after a day on the coast.</p>
+      <p class="prose">There is no television worth mentioning and the wifi is quietly fast. Most guests find they stop checking it by the second morning.</p>
+    </div>
+    <div class="reveal framed">
+      <div class="frame"><img src="images/rooms/private-pool-villa.jpg" alt="The Cliffs — clifftop house with infinity pool opening to the Southern Ocean at dusk" loading="lazy" decoding="async"></div>
+      <div class="floatcard"><span class="fc-k">The house, entire</span><span class="fc-v">Yours alone on the headland</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 02 · THE ROOMS · live vertical gallery (auto-scroll columns, all devices) ══ -->
+<section class="rooms-live" id="rooms">
+  <div class="rl-head reveal">
+    <span class="eyebrow">02 — The Rooms</span>
+    <h2 class="split">Rooms that don't compete with the view.</h2>
+    <p class="rl-sub">Timber, linen and unglazed stone — each room turned to the water, asking nothing of your attention. Hover to name a room; tap to open it full-size.</p>
+  </div>
+  <div class="rl-cols" id="rlCols" role="list" aria-label="The rooms — a living gallery of the house">
+      <div class="rl-col up">
+        <figure class="rl-item" data-cap="The Morning Room"><img src="images/rooms/gallery/g1-minimalist.jpg" alt="Minimalist bedroom open to the ocean at first light" loading="lazy" decoding="async"><figcaption class="rl-name">The Morning Room</figcaption></figure>
+        <figure class="rl-item" data-cap="The Ocean Room"><img src="images/rooms/gallery/g2-oceanview.jpg" alt="Ocean-view suite with a wall of glass to the sea" loading="lazy" decoding="async"><figcaption class="rl-name">The Ocean Room</figcaption></figure>
+        <figure class="rl-item" data-cap="The Pool Terrace"><img src="images/rooms/gallery/g3-poolvilla.jpg" alt="Infinity pool and terrace above the Southern Ocean" loading="lazy" decoding="async"><figcaption class="rl-name">The Pool Terrace</figcaption></figure>
+        <figure class="rl-item" data-cap="The Living Room"><img src="images/rooms/gallery/g1-penthouse.jpg" alt="Double-height living room facing the coast" loading="lazy" decoding="async"><figcaption class="rl-name">The Living Room</figcaption></figure>
+        <figure class="rl-item" data-cap="The Glass Room"><img src="images/rooms/gallery/g2-cliffside.jpg" alt="Glass room cantilevered over the cliff at dusk" loading="lazy" decoding="async"><figcaption class="rl-name">The Glass Room</figcaption></figure>
+        <figure class="rl-item" data-cap="The Hideaway"><img src="images/rooms/gallery/g3-honeymoon.jpg" alt="Canopy bed and freestanding tub open to the sunset" loading="lazy" decoding="async"><figcaption class="rl-name">The Hideaway</figcaption></figure>
+      </div>
+      <div class="rl-col down">
+        <figure class="rl-item" data-cap="The Morning Room"><img src="images/rooms/gallery/g2-minimalist.jpg" alt="Minimalist bedroom open to the ocean at first light" loading="lazy" decoding="async"><figcaption class="rl-name">The Morning Room</figcaption></figure>
+        <figure class="rl-item" data-cap="The Ocean Room"><img src="images/rooms/gallery/g3-oceanview.jpg" alt="Ocean-view suite with a wall of glass to the sea" loading="lazy" decoding="async"><figcaption class="rl-name">The Ocean Room</figcaption></figure>
+        <figure class="rl-item" data-cap="The Pool Terrace"><img src="images/rooms/gallery/g1-poolvilla.jpg" alt="Infinity pool and terrace above the Southern Ocean" loading="lazy" decoding="async"><figcaption class="rl-name">The Pool Terrace</figcaption></figure>
+        <figure class="rl-item" data-cap="The Living Room"><img src="images/rooms/gallery/g2-penthouse.jpg" alt="Double-height living room facing the coast" loading="lazy" decoding="async"><figcaption class="rl-name">The Living Room</figcaption></figure>
+        <figure class="rl-item" data-cap="The Glass Room"><img src="images/rooms/gallery/g3-cliffside.jpg" alt="Glass room cantilevered over the cliff at dusk" loading="lazy" decoding="async"><figcaption class="rl-name">The Glass Room</figcaption></figure>
+        <figure class="rl-item" data-cap="The Hideaway"><img src="images/rooms/gallery/g2-honeymoon.jpg" alt="Canopy bed and freestanding tub open to the sunset" loading="lazy" decoding="async"><figcaption class="rl-name">The Hideaway</figcaption></figure>
+      </div>
+      <div class="rl-col up">
+        <figure class="rl-item" data-cap="The Morning Room"><img src="images/rooms/gallery/g3-minimalist.jpg" alt="Minimalist bedroom open to the ocean at first light" loading="lazy" decoding="async"><figcaption class="rl-name">The Morning Room</figcaption></figure>
+        <figure class="rl-item" data-cap="The Ocean Room"><img src="images/rooms/gallery/g1-oceanview.jpg" alt="Ocean-view suite with a wall of glass to the sea" loading="lazy" decoding="async"><figcaption class="rl-name">The Ocean Room</figcaption></figure>
+        <figure class="rl-item" data-cap="The Pool Terrace"><img src="images/rooms/gallery/g2-poolvilla.jpg" alt="Infinity pool and terrace above the Southern Ocean" loading="lazy" decoding="async"><figcaption class="rl-name">The Pool Terrace</figcaption></figure>
+        <figure class="rl-item" data-cap="The Living Room"><img src="images/rooms/gallery/g3-penthouse.jpg" alt="Double-height living room facing the coast" loading="lazy" decoding="async"><figcaption class="rl-name">The Living Room</figcaption></figure>
+        <figure class="rl-item" data-cap="The Glass Room"><img src="images/rooms/gallery/g1-cliffside.jpg" alt="Glass room cantilevered over the cliff at dusk" loading="lazy" decoding="async"><figcaption class="rl-name">The Glass Room</figcaption></figure>
+      </div>
+  </div>
+</section>
+
+<!-- ══ THE EDGE · oceanfront cinematic band ══ -->
+<section class="band wrap" id="view">
+  <div class="reveal">
+    <div class="cband">
+      <div class="cband-media"><img src="images/rooms/oceanfront.jpg" data-parallax="0.08" alt="The Cliffs at sunset — clifftop house and infinity pool above the Southern Ocean" loading="lazy" decoding="async"></div>
+      <div class="cband-in">
+        <span class="eyebrow">The Edge</span>
+        <p class="bigline split">On a clear evening you can watch the weather arrive from Antarctica.</p>
+        <p class="vnote">From June to October, southern right whales track the coast below — close enough to follow with the binoculars left by the window.</p>
+        <div class="live-strip" id="edgeLive"><span class="live-dot" aria-hidden="true"></span><span class="live-label">At the edge now</span><span class="live-val" id="edgeVal">first light on the water</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 03 · SIGNATURE EXPERIENCES — over the coast ══ -->
+<section class="band wrap" id="experiences">
+  <div class="reveal expband">
+    <div class="expband-media"><img src="images/rooms/experiences-bg.jpg" data-parallax="0.08" alt="The coast and headland below The Cliffs at dusk" loading="lazy" decoding="async"></div>
+    <div class="expband-in">
+      <span class="eyebrow">03 — Signature Experiences</span>
+      <h2>What a day on the coast asks of you: very little.</h2>
+      <div class="exp exp-on-photo">
+        <div class="exp-item reveal"><span class="k">i</span><div><h3>Sea-cliff walks</h3><p>Step from the deck onto the coastal track. Headlands, hidden coves, and a lighthouse an hour along.</p></div></div>
+        <div class="exp-item reveal"><span class="k">ii</span><div><h3>Whale season <span class="season-badge" id="whaleBadge"></span></h3><p>June through October, mothers and calves rest in the bay below. Some mornings you need not leave the window.</p></div></div>
+        <div class="exp-item reveal"><span class="k">iii</span><div><h3>Cellar doors</h3><p>A dozen small, cool-climate wineries within half an hour — pinot, chardonnay, and long lunches with a view.</p></div></div>
+        <div class="exp-item reveal"><span class="k">iv</span><div><h3>Dark skies</h3><p>No town glow for miles. On clear nights the Milky Way lands squarely over the water.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── the stay ── -->
+<section class="band" id="stay" style="background:var(--paper);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="no">04 — The Stay</span><span class="ln"></span></div>
+    <div class="live-clock reveal" id="stayClock"><span class="lc-dot" aria-hidden="true"></span>Local time at The Cliffs — <b id="clockVal">—</b> <span class="lc-tz">Victoria</span></div>
+    <div class="staycount reveal">
+      <div class="c"><span class="n" data-count="6">0</span><span class="l">Guests</span></div>
+      <div class="c"><span class="n" data-count="3">0</span><span class="l">Bedrooms</span></div>
+      <div class="c"><span class="n" data-count="2">0</span><span class="l">Bathrooms</span></div>
+      <div class="c"><span class="n" data-count="90" data-suffix=" m">0</span><span class="l">Above the sea</span></div>
+    </div>
+    <div class="stay-split">
+      <figure class="stay-photo reveal"><img src="images/rooms/gallery/g2-poolvilla.jpg" alt="The pool terrace and timber deck above the Southern Ocean" loading="lazy" decoding="async"></figure>
+      <div class="stay-text">
+        <div class="reveal">
+          <p class="specs">Sleeps six, across three bedrooms and two baths — the whole house, and the whole headland, yours alone.</p>
+          <div class="facts"><span class="chip">Entire house</span><span class="chip">90 m above the sea</span><span class="chip">2-night minimum</span><span class="chip">Check-in from 3pm</span></div>
+        </div>
+        <ul class="amen reveal">
+          <li>Wood fireplace &amp; quiet climate control</li>
+          <li>Cedar soaking tub on the deck</li>
+          <li>Full kitchen with local provisions</li>
+          <li>Record player &amp; coastal field guides</li>
+          <li>Binoculars &amp; whale charts by the window</li>
+          <li>Fast wifi, if you really must</li>
+          <li>Covered parking for two cars</li>
+          <li>Dog-friendly, by arrangement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── the descent (location) ── -->
+<section class="band wrap" id="location">
+  <div class="sec-head reveal"><span class="no">05 — The Descent</span><span class="ln"></span></div>
+  <div class="loc">
+    <figure class="reveal loc-photo">
+      <img src="images/rooms/gallery/g1-cliffside.jpg" alt="The cliff falling to the Southern Ocean below The Cliffs at dusk" loading="lazy" decoding="async">
+      <figcaption>Great Ocean Road · Southern Ocean</figcaption>
+    </figure>
+    <div class="reveal">
+      <p class="prose" style="margin-bottom:1.3rem">The Cliffs sits directly on the Great Ocean Road, where it runs hard along Victoria's southern coastline — one of the great coastal drives on earth, and your front doorstep. Remote enough to feel it, close enough to be easy. The last of the lane is unsealed; a small car manages it fine, and full directions arrive with your booking.</p>
+      <p class="live-tip" id="descentTip"><span class="live-dot" aria-hidden="true"></span><span id="tipVal">2 hr 45 min from Melbourne</span></p>
+      <ul class="dist">
+        <li><span class="place">Melbourne</span><span class="t">2 hr 45 min</span></li>
+        <li><span class="place">Great Ocean Road</span><span class="t">at the door</span></li>
+        <li><span class="place">Village bakery &amp; store</span><span class="t">6 min</span></li>
+        <li><span class="place">Nearest cellar door</span><span class="t">10 min</span></li>
+        <li><span class="place">Beach access track</span><span class="t">on foot</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GUEST NOTE — over photo ══ -->
+<section class="band wrap">
+  <div class="reveal guestband">
+    <div class="guestband-media"><img src="images/rooms/guest-bg.jpg" data-parallax="0.08" alt="A warm evening in the living room at The Cliffs" loading="lazy" decoding="async"></div>
+    <div class="guestband-in quote">
+      <span class="mark" aria-hidden="true">“</span>
+      <div class="stars" aria-label="Five stars">★★★★★</div>
+      <blockquote>We came for a weekend and spent most of it on the deck, watching the weather change. We’ve already booked the same week next year.</blockquote>
+      <cite>Priya &amp; Tom — Melbourne · Verified Airbnb guests</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ── final cta ── -->
+<section class="band wrap">
+  <div class="final reveal">
+    <div class="ph"><img src="images/rooms/cta-bg.jpg" alt="The Cliffs at dusk — glass house poised at the edge of the country, above the ocean" loading="lazy" decoding="async"></div>
+    <div class="fscrim" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="eyebrow">Your stay is waiting</span>
+      <h2>Come and stand at the edge of the country.</h2>
+      <p>Dates move quickly through whale season and summer. Check availability and reserve directly through our official Airbnb listing.</p>
+      <form class="bookbar" id="bookbar">
+        <span class="blabel">Reserve</span>
+        <div class="bfield"><label for="checkin">Check-in</label><input type="date" id="checkin" name="checkin"></div>
+        <div class="bfield"><label for="checkout">Check-out</label><input type="date" id="checkout" name="checkout"></div>
+        <div class="bfield"><label for="guests">Guests</label>
+          <select id="guests" name="guests"><option>1 guest</option><option selected>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6 guests</option></select>
+        </div>
+        <a class="btn btn-primary" id="bookgo" href="https://www.airbnb.co.in" target="_blank" rel="noopener">Check on Airbnb <span class="arw" aria-hidden="true">↗</span></a>
+      </form>
+      <p class="live-nights" id="nightsOut" hidden></p>
+      <p class="micro">Secure booking &amp; reviews handled by Airbnb · Instant confirmation</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── lightbox (room pop-out) ── -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Room photo">
+  <button class="lb-close" type="button" aria-label="Close">&times;</button>
+  <div class="lb-stage">
+    <img src="" alt="" decoding="async">
+    <div class="lb-cap"></div>
+  </div>
+</div>
+
+<!-- ── footer ── -->
+<footer class="foot">
+  <div class="foot-media" aria-hidden="true"><img src="images/rooms/footer-bg.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="wrap foot-in">
+    <div><a class="wordmark" href="#top">The&nbsp;Cliffs</a><small style="margin-top:1rem">A cliff-top house on the Great Ocean Road<br>Southern Ocean · Victoria, Australia</small></div>
+    <small>Book through our official listing<br><a href="https://www.airbnb.co.in" target="_blank" rel="noopener">Reserve on Airbnb →</a></small>
+    <div style="display:flex;flex-direction:column;gap:1rem;align-items:flex-start">
+      <small>Entire home · Sleeps 6<br>2-night minimum · Dog-friendly by arrangement<br>© 2026 The Cliffs. All rights reserved.</small>
+      <button class="themebtn" id="theme" type="button" aria-label="Switch light or dark theme" title="Switch theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.2v2.3M12 19.5V21.8M2.2 12h2.3M19.5 12h2.3M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M19.1 4.9l-1.6 1.6M6.5 17.5l-1.6 1.6"/></svg>
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var root = document.documentElement;
+
+  /* theme toggle */
+  var tbtn = document.getElementById("theme");
+  try{ var saved = localStorage.getItem("cliffs-theme"); if(saved) root.setAttribute("data-theme", saved); }catch(e){}
+  tbtn.addEventListener("click", function(){
+    var isDark = root.getAttribute("data-theme")==="dark" ||
+      (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    var next = isDark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try{ localStorage.setItem("cliffs-theme", next); }catch(e){}
+  });
+
+  /* sticky dock appears past the hero */
+  var dock = document.getElementById("dock");
+  var hero = document.getElementById("top");
+  function onScroll(){ dock.classList.toggle("show", window.scrollY > window.innerHeight * 0.85); }
+  onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
+
+  /* cinematic line reveal (sections only) */
+  function splitWords(el){
+    var text = el.textContent; el.textContent = "";
+    var toks = text.split(/(\s+)/), wi = 0;
+    toks.forEach(function(tok){
+      if(tok === "") return;
+      if(/^\s+$/.test(tok)){ el.appendChild(document.createTextNode(" ")); return; }
+      var w = document.createElement("span"); w.className = "w";
+      var inner = document.createElement("span"); inner.textContent = tok;
+      inner.style.transitionDelay = (wi*0.05).toFixed(3)+"s"; wi++;
+      w.appendChild(inner); el.appendChild(w);
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".split"), splitWords);
+
+  /* reveal on scroll */
+  var items = Array.prototype.slice.call(document.querySelectorAll(".reveal, .split"));
+  var revealAll = function(){ items.forEach(function(el){ el.classList.add("in"); }); };
+  if(reduce || !("IntersectionObserver" in window)){
+    revealAll();
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, {rootMargin:"0px 0px -10% 0px", threshold:0.1});
+    items.forEach(function(el){ io.observe(el); });
+    setTimeout(revealAll, 2800);
+  }
+
+  /* ── scroll-reveal hero (native sticky scroll — never hijacks the wheel) ── */
+  (function(){
+    var xh = document.getElementById("top");
+    if(!xh || !xh.classList.contains("xhero")) return;
+    var bg = xh.querySelector(".xhero-bg"),
+        media = document.getElementById("xmedia"),
+        xscrim = document.getElementById("xscrim"),
+        t1 = xh.querySelector(".xt1"), t2 = xh.querySelector(".xt2"),
+        hint = xh.querySelector(".xhero-hint");
+    function mob(){ return window.innerWidth < 768; }
+    function render(prog){
+      var iw = window.innerWidth, ih = window.innerHeight;
+      var sW = mob() ? 230 : 320, sH = mob() ? 320 : 440;
+      media.style.width  = (sW + prog*(iw - sW)) + "px";
+      media.style.height = (sH + prog*(ih - sH)) + "px";
+      media.style.borderRadius = ((1 - prog)*18).toFixed(1) + "px";
+      bg.style.opacity = (1 - prog).toFixed(3);
+      var tx = prog*(mob() ? 130 : 120);
+      t1.style.transform = "translateX(-" + tx.toFixed(1) + "vw)";
+      t2.style.transform = "translateX(" + tx.toFixed(1) + "vw)";
+      if(xscrim) xscrim.style.opacity = (0.5*(1 - prog)).toFixed(3);
+      if(hint) hint.style.opacity = Math.max(0, 1 - prog*3).toFixed(3);
+    }
+    if(reduce){ if(media) media.style.display = "none"; render(0); return; }
+    var ticking = false;
+    function update(){
+      ticking = false;
+      var total = xh.offsetHeight - window.innerHeight;
+      var scrolled = Math.min(Math.max(-xh.getBoundingClientRect().top, 0), total);
+      render(total > 0 ? scrolled/total : 0);
+    }
+    function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(update); } }
+    update();
+    window.addEventListener("scroll", onScroll, {passive:true});
+    window.addEventListener("resize", function(){ update(); }, {passive:true});
+  })();
+
+  /* booking bar */
+  var ci = document.getElementById("checkin"), co = document.getElementById("checkout"),
+      go = document.getElementById("bookgo"), form = document.getElementById("bookbar");
+  var today = new Date().toISOString().slice(0,10);
+  if(ci){ ci.min = today; }
+  if(ci && co){ ci.addEventListener("change", function(){ co.min = ci.value || today; if(co.value && co.value < co.min) co.value = co.min; }); }
+  if(form){ form.addEventListener("submit", function(e){ e.preventDefault(); window.open(go.href, "_blank", "noopener"); }); }
+})();
+</script>
+
+<script>
+/* ── Luxury motion layer for the content below the hero.
+      Dependency-free, performance-minded, and fully reduced-motion aware.
+      The hero's own scroll/reveal logic above is left untouched. ── */
+(function(){
+  "use strict";
+  var mm = window.matchMedia;
+  var reduce = mm && mm("(prefers-reduced-motion: reduce)").matches;
+  var fine   = mm && mm("(hover:hover) and (pointer:fine)").matches;
+
+  /* 3D perspective tilt on room cards */
+  if(fine && !reduce){
+    Array.prototype.forEach.call(document.querySelectorAll(".tilt"), function(card){
+      var raf = null;
+      card.addEventListener("pointermove", function(e){
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left)/r.width  - 0.5;
+        var py = (e.clientY - r.top )/r.height - 0.5;
+        if(raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(function(){
+          card.style.transition = "transform 90ms linear";
+          card.style.transform  = "perspective(900px) rotateX(" + (-py*5).toFixed(2) +
+            "deg) rotateY(" + (px*6).toFixed(2) + "deg) translateY(-6px)";
+        });
+      });
+      card.addEventListener("pointerleave", function(){
+        card.style.transition = "transform .6s cubic-bezier(.16,.8,.2,1),box-shadow .5s";
+        card.style.transform  = "";
+      });
+    });
+  }
+
+  /* subtle scroll parallax on feature imagery */
+  var pEls = Array.prototype.slice.call(document.querySelectorAll("[data-parallax]"));
+  if(pEls.length && !reduce){
+    var ticking = false;
+    var apply = function(){
+      ticking = false;
+      var vh = window.innerHeight;
+      pEls.forEach(function(el){
+        var box = el.parentElement.getBoundingClientRect();
+        if(box.bottom < -120 || box.top > vh + 120) return;
+        var off = (box.top + box.height/2 - vh/2) / vh;        /* ~ -1 .. 1 */
+        var sp  = parseFloat(el.getAttribute("data-parallax")) || 0.1;
+        el.style.transform = "translate3d(0," + (off * box.height * sp).toFixed(1) + "px,0)";
+      });
+    };
+    var onScroll = function(){ if(!ticking){ ticking = true; requestAnimationFrame(apply); } };
+    apply();
+    window.addEventListener("scroll", onScroll, {passive:true});
+    window.addEventListener("resize", onScroll, {passive:true});
+  }
+
+  /* count-up for the stay stats, triggered on first view */
+  var counters = Array.prototype.slice.call(document.querySelectorAll("[data-count]"));
+  function runCount(el){
+    var tgt = parseFloat(el.getAttribute("data-count")) || 0;
+    var suf = el.getAttribute("data-suffix") || "";
+    if(reduce || !window.requestAnimationFrame){ el.textContent = tgt + suf; return; }
+    var dur = 1200, start = null;
+    requestAnimationFrame(function step(ts){
+      if(start === null) start = ts;
+      var p = Math.min((ts - start)/dur, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(tgt * e) + suf;
+      if(p < 1) requestAnimationFrame(step);
+    });
+  }
+  if(counters.length){
+    if(!("IntersectionObserver" in window)){ counters.forEach(runCount); }
+    else{
+      var cio = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ runCount(en.target); cio.unobserve(en.target); } });
+      }, {threshold:0.4});
+      counters.forEach(function(el){ cio.observe(el); });
+    }
+  }
+
+  /* ── live rooms gallery: clone each column for a seamless loop, + click-to-popout ── */
+  var rlCols = document.getElementById("rlCols");
+  if(rlCols && !reduce){
+    Array.prototype.forEach.call(rlCols.querySelectorAll(".rl-col"), function(col){
+      Array.prototype.slice.call(col.children).forEach(function(node){
+        var clone = node.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        col.appendChild(clone);
+      });
+    });
+  }
+
+  var lb = document.getElementById("lightbox");
+  if(rlCols && lb){
+    var lbImg = lb.querySelector("img"), lbCap = lb.querySelector(".lb-cap");
+    function openLB(src, cap, alt){
+      lbImg.setAttribute("src", src); lbImg.setAttribute("alt", alt || "");
+      lbCap.textContent = cap || "";
+      lb.classList.add("open"); lb.setAttribute("aria-hidden", "false");
+      try{ document.body.style.overflow = "hidden"; }catch(e){}
+    }
+    function closeLB(){
+      lb.classList.remove("open"); lb.setAttribute("aria-hidden", "true");
+      try{ document.body.style.overflow = ""; }catch(e){}
+      lbImg.setAttribute("src", "");
+    }
+    rlCols.addEventListener("click", function(e){
+      var fig = e.target.closest ? e.target.closest(".rl-item") : null;
+      if(!fig) return;
+      var img = fig.querySelector("img");
+      openLB(img.getAttribute("src"), fig.getAttribute("data-cap"), img.getAttribute("alt"));
+    });
+    lb.addEventListener("click", function(e){
+      if(e.target === lbImg) return;          /* clicking the photo keeps it open */
+      closeLB();
+    });
+    document.addEventListener("keydown", function(e){
+      if((e.key === "Escape" || e.keyCode === 27) && lb.classList.contains("open")) closeLB();
+    });
+  }
+
+  /* ── live / dynamic accents ─────────────────────────────── */
+  function rotate(el, phrases, every){
+    if(!el) return;
+    var i = 0;
+    setInterval(function(){
+      i = (i + 1) % phrases.length;
+      el.style.opacity = "0";
+      setTimeout(function(){ el.textContent = phrases[i]; el.style.opacity = "1"; }, reduce ? 0 : 460);
+    }, every);
+  }
+  /* The Edge — the light/weather now (cycles) */
+  rotate(document.getElementById("edgeVal"), [
+    "first light on the water","the four o'clock gold","last light going out",
+    "the Milky Way over the water","a southerly coming in","mist off the headland"
+  ], 3800);
+  /* The Descent — getting here (cycles) */
+  rotate(document.getElementById("tipVal"), [
+    "2 hr 45 min from Melbourne","the last of the lane is unsealed",
+    "beach access only at low tide","directions arrive with your booking"
+  ], 4200);
+
+  /* Experiences — live whale-season badge (June–October) */
+  var whale = document.getElementById("whaleBadge");
+  if(whale){
+    var mo = new Date().getMonth();              /* 0 = Jan */
+    var inSeason = mo >= 5 && mo <= 9;            /* Jun–Oct */
+    whale.textContent = inSeason ? "In season now" : "Returns in June";
+    whale.className = "season-badge" + (inSeason ? " on" : "");
+  }
+
+  /* The Stay — live local time at The Cliffs (Victoria) */
+  var clockVal = document.getElementById("clockVal"), stayClock = document.getElementById("stayClock");
+  if(clockVal && window.Intl){
+    var fmt = null;
+    try{ fmt = new Intl.DateTimeFormat("en-AU",{timeZone:"Australia/Melbourne",hour:"numeric",minute:"2-digit",hour12:true}); }catch(e){}
+    if(fmt){
+      var tick = function(){ try{ clockVal.textContent = fmt.format(new Date()); }catch(e){} };
+      tick(); setInterval(tick, 15000);
+    } else if(stayClock){ stayClock.style.display = "none"; }
+  } else if(stayClock){ stayClock.style.display = "none"; }
+
+  /* The CTA — live nights count when both dates are chosen */
+  (function(){
+    var ci = document.getElementById("checkin"), co = document.getElementById("checkout"),
+        out = document.getElementById("nightsOut");
+    if(!ci || !co || !out) return;
+    function upd(){
+      if(ci.value && co.value){
+        var n = Math.round((new Date(co.value) - new Date(ci.value)) / 86400000);
+        if(n > 0){ out.innerHTML = "Your stay — <b>" + n + (n === 1 ? " night" : " nights") + "</b>"; out.hidden = false; return; }
+      }
+      out.hidden = true;
+    }
+    ci.addEventListener("change", upd); co.addEventListener("change", upd);
+  })();
+})();
+</script>

@@ -1,0 +1,19 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment and secret files
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+
+# Build files
+dist/
+build/
+
+# Editor files
+.vscode/git status --untracked-files=all
